@@ -11,27 +11,26 @@ $(function () {
     $(".header__bg").removeClass("is-active");
   });
 
-  var pagetop = $("#page_top");
-  pagetop.hide();
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 700) {
-      pagetop.fadeIn();
-    } else {
-      pagetop.fadeOut();
-    }
-  });
-  pagetop.click(function () {
-    $("body, html").animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
-    return false;
+    $(".js-fadeIn").each(function () {
+      var targetElement = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > targetElement - windowHeight) {
+        $(this).css("opacity", "1");
+        $(this).css("transform", "translateY(0)");
+      }
+    });
   });
 });
 
-$('a[href^="#"]').click(function () {
-  var adjust = 80;
-  var speed = 300;
-  var href = $(this).attr("href");
-  var target = $(href == "#" || href == "" ? "html" : href);
-  var position = target.offset().top - adjust;
-  $("body,html").animate({ scrollTop: position }, speed, "swing");
-  return false;
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  slidesPerView: 4,
+  spaceBetween: 60,
+  speed: 3000,
+  centeredSlidesBounds: true,
+  autoplay: {
+    delay: 0,
+  },
 });

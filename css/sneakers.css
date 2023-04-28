@@ -63,17 +63,18 @@ img {
   vertical-align: top;
 }
 
-.header {
+.header__innner {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   display: flex;
+  justify-content: space-between;
   background-color: #ffffff;
 }
 @media (min-width: 901px) {
-  .header {
+  .header__innner {
     padding: 20px 40px;
   }
 }
@@ -82,13 +83,30 @@ img {
   max-width: 175px;
 }
 
+.header__bg {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  background-color: #121212;
+  transition: all 0.3s;
+  z-index: 2;
+}
+.header__bg.is-active {
+  opacity: 0.7;
+  visibility: visible;
+  height: 100vh;
+}
+
 .openbtn1 {
-  position: fixed; /*fixedを設定して固定*/
-  top: 0px; /*位置指定*/
-  right: 40px; /*位置指定*/
+  position: relative;
   cursor: pointer;
   width: 30px;
   height: 20px;
+  top: 0;
+}
+.openbtn1.active {
+  background: #121212;
+  opacity: 0.7;
 }
 
 .openbtn {
@@ -102,13 +120,33 @@ img {
   left: 0;
 }
 .openbtn:nth-of-type(1) {
-  top: 30px;
+  top: 10px;
 }
 .openbtn:nth-of-type(2) {
-  top: 40px;
+  top: 20px;
 }
 .openbtn:nth-of-type(3) {
-  top: 50px;
+  top: 30px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+  top: 35px;
+  left: 20px;
+  transform: translateY(-5px) rotate(-135deg);
+  width: 30px;
+  background: #ffffff;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  opacity: 0; /*真ん中の線は透過*/
+}
+
+.openbtn1.active span:nth-of-type(3) {
+  top: 35px;
+  left: 20px;
+  transform: translateY(-6px) rotate(134deg);
+  width: 30px;
+  background: #ffffff;
 }
 
 #header__menu {
@@ -127,15 +165,81 @@ img {
   transition: all 0.5s;
   transform: translateX(-300px);
 }
+#header__menu.panelactive {
+  opacity: 1;
+  visibility: visible;
+  height: 100vh;
+  background: #ffffff;
+  transform: translateX(0px);
+}
 
 .main__visual {
   margin-top: 80px;
 }
 
 .parallax-bg {
+  background: url("img/video.mp4") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
   max-width: 1600px;
-  height: 100vh;
+  z-index: -1;
 }
 .parallax-bg video {
   width: 100%;
+}
+
+.section__title--primary {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-slide {
+  max-width: 360px;
+}
+
+.feature__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+}
+
+.feature__items {
+  display: inline-block;
+  max-width: 385px;
+  border: #cccccc solid 1px;
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.1607843137);
+}
+
+.feature__items__detail {
+  padding: 27px 31px;
+}
+
+.feature__list__subtitle {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.feature__list__text {
+  font-size: 14.4px;
+  margin-bottom: 33px;
+}
+
+time {
+  font-size: 12px;
+  display: block;
+  text-align: right;
+}
+
+.js-fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s;
 }/*# sourceMappingURL=sneakers.css.map */
