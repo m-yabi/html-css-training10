@@ -1,1 +1,69 @@
 @import "_settings.scss";
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  background-color: #ffffff;
+  @include pc {
+    padding: 20px 40px;
+  }
+}
+.header__logo {
+  max-width: 175px;
+}
+.openbtn1 {
+  position: fixed; /*fixedを設定して固定*/
+  top: 0px; /*位置指定*/
+  right: 40px; /*位置指定*/
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+}
+.openbtn {
+  display: inline-block;
+  transition: all 0.4s; /*アニメーションの設定*/
+  position: absolute;
+  background: #121212;
+  width: 30px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  &:nth-of-type(1) {
+    top: 30px;
+  }
+  &:nth-of-type(2) {
+    top: 40px;
+  }
+  &:nth-of-type(3) {
+    top: 50px;
+  }
+}
+#header__menu {
+  position: fixed;
+  z-index: 5;
+  opacity: 0; /*はじめは透過0*/
+  visibility: hidden;
+  /*ナビの位置と形状*/
+  top: 0;
+  left: 0;
+  padding-top: 30px;
+  padding-left: 20px;
+  width: 300px;
+  height: 100vh; /*ナビの高さ*/
+  /*動き*/
+  transition: all 0.5s;
+  transform: translateX(-300px);
+}
+.main__visual {
+  margin-top: 80px;
+}
+.parallax-bg {
+  max-width: 1600px;
+  height: 100vh;
+  video {
+    width: 100%;
+  }
+}
