@@ -268,4 +268,78 @@ time {
   opacity: 0;
   transform: translateY(30px);
   transition: all 1s;
+}
+
+footer {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.contact__section {
+  margin-top: 60px;
+  padding: 50px 0px;
+}
+
+.section__title--secondary {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact__form {
+  width: 533px;
+}
+
+.contact__text {
+  width: 543px;
+  margin-right: 131px;
+}
+.contact__text p {
+  margin-bottom: 30px;
+}
+
+.form-text {
+  display: block;
+  width: 100%;
+  height: 44px;
+  background-color: #ffffff;
+  color: #121212;
+  padding: 10px;
+  margin-bottom: 19px;
+}
+
+.form-textarea {
+  display: block;
+  width: 100%;
+  height: 68px;
+  background-color: #ffffff;
+  color: #121212;
+  margin-bottom: 24px;
+}
+
+.send-btn {
+  width: 200px;
+  padding: 12px 0px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  cursor: pointer;
+}
+.send-btn:hover {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+small {
+  display: block;
+  text-align: center;
+  transition: 0.5s;
+  font-size: 12px;
+  padding-bottom: 10px;
 }/*# sourceMappingURL=sneakers.css.map */
