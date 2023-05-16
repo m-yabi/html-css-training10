@@ -1,10 +1,12 @@
 @import "_settings.scss";
-.header__innner {
-  width: 100%;
+header {
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 10;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+}
+.header__innner {
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
@@ -21,24 +23,46 @@
   width: 100%;
   background-color: #121212;
   transition: all 0.3s;
-  z-index: 2;
+  position: fixed;
   &.is-active {
     opacity: 0.7;
     visibility: visible;
     height: 100vh;
   }
 }
-
 .openbtn1 {
   position: relative;
   cursor: pointer;
   width: 30px;
   height: 20px;
-  top: 0;
+  top: 50%;
+  right: 0;
+  z-index: 1000;
   &.active {
-    background: #121212;
-    opacity: 0.7;
+    z-index: 99;
+    .openbtn {
+      &:nth-of-type(1) {
+        top: 0;
+        left: 0;
+        transform: translateY(20px) rotate(-315deg);
+        width: 30px;
+        background: #ffffff;
+      }
+      &:nth-of-type(2) {
+        opacity: 0; /*真ん中の線は透過*/
+      }
+      &:nth-of-type(3) {
+        top: 40px;
+        left: 0px;
+        transform: translateY(-20px) rotate(315deg);
+        width: 30px;
+        background: #ffffff;
+      }
+    }
   }
+}
+.openbtn2 {
+  position: relative;
 }
 .openbtn {
   display: inline-block;
@@ -59,34 +83,14 @@
     top: 30px;
   }
 }
-.openbtn1.active span:nth-of-type(1) {
-  top: 35px;
-  left: 20px;
-  transform: translateY(-5px) rotate(-135deg);
-  width: 30px;
-  background: #ffffff;
-}
-.openbtn1.active span:nth-of-type(2) {
-  opacity: 0; /*真ん中の線は透過*/
-}
-
-.openbtn1.active span:nth-of-type(3) {
-  top: 35px;
-  left: 20px;
-  transform: translateY(-6px) rotate(134deg);
-  width: 30px;
-  background: #ffffff;
-}
 #header__menu {
-  position: fixed;
-  z-index: 5;
+  position: absolute;
   opacity: 0; /*はじめは透過0*/
   visibility: hidden;
   /*ナビの位置と形状*/
   top: 0;
   left: 0;
-  padding-top: 30px;
-  padding-left: 20px;
+  padding: 50px 20px;
   width: 300px;
   height: 100vh; /*ナビの高さ*/
   /*動き*/
@@ -96,8 +100,24 @@
     opacity: 1;
     visibility: visible;
     height: 100vh;
-    background: #ffffff;
+    background: black;
+    color: #ffffff;
     transform: translateX(0px);
+  }
+}
+.header__menu__list {
+  padding: 20px 0px;
+  border-bottom: 1px solid #ffffff;
+  cursor: pointer;
+  &:first-child {
+    border-top: 1px solid #ffffff;
+  }
+}
+.sns__list {
+  padding-bottom: 5px;
+  cursor: pointer;
+  &:nth-child(4) {
+    margin-top: 60px;
   }
 }
 .main__visual {
@@ -107,7 +127,7 @@
   background: url("img/video.mp4") no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
-  max-width: 1600px;
+  width: 100%;
   z-index: -1;
   video {
     width: 100%;
@@ -128,7 +148,10 @@
 .swiper-slide {
   max-width: 360px;
 }
-
+.feature__section {
+  max-width: 1250px;
+  margin: auto;
+}
 .feature__list {
   display: flex;
   flex-wrap: wrap;
