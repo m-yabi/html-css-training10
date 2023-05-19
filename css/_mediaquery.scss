@@ -1,14 +1,34 @@
+$width1600: 1600px;
+$width1128: 1128px;
+
 $pc: 901px; // pcのみ
-$sp: 900px; // spのみ
+$tb: 900px;
+$sp: 750px; // spのみ
 
 @mixin pc {
   @media (min-width: ($pc)) {
     @content;
   }
 }
-
+@mixin tb {
+  @media (min-width: ($tb)) {
+    @content;
+  }
+}
 @mixin sp {
   @media (max-width: ($sp)) {
     @content;
+  }
+}
+
+@mixin fluidValue1600($el, $maxSize, $spSize) {
+  @media (min-width: ($width1600)) {
+    #{$el}: #{$maxSize}px;
+  }
+  @media (max-width: ($width1600)) {
+    #{$el}: #{calc($maxSize / 1600) * 100}vw;
+  }
+  @media (max-width: ($sp)) {
+    #{$el}: #{calc($spSize / 375) * 100}vw;
   }
 }

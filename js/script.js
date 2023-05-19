@@ -26,11 +26,18 @@ $(function () {
 
 const swiper = new Swiper(".swiper", {
   loop: true,
-  slidesPerView: 4,
-  spaceBetween: 60,
+  spaceBetween: 20,
   speed: 3000,
-  centeredSlidesBounds: true,
+  centeredSlides: true,
+  slidesPerView: 1.5,
   autoplay: {
     delay: 0,
+  },
+  breakpoints: {
+    // スライドの表示枚数：500px以上の場合
+    750: {
+      slidesPerView: 4,
+      spaceBetween: 60,
+    },
   },
 });
